@@ -1,5 +1,7 @@
 # Concourse samples
 
+![Continuous integration](https://github.com/devpro/concourse-samples/workflows/Continuous%20integration/badge.svg)
+
 Pipeline samples to quickly get up to speed with [Concourse](https://concourse-ci.org/)!
 
 For more information, feel free to have a look at this [knowledge base](https://knowledge-base-bertrand-thomas.cfapps.io/automation/concourse/).

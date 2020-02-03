@@ -1,0 +1,31 @@
+---
+# See https://github.com/actions/starter-workflows
+name: Continuous integration
+
+on:
+  pull_request:
+    branches:
+      - master
+  schedule:
+    - cron: "0 2 * * 1-5"
+
+env:
+  python_version: 3.8
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ env.python_version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ env.python_version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install yamllint
+      # See https://github.com/adrienverge/yamllint, https://yamllint.readthedocs.io/en/stable/
+      - name: Lint all yaml files
+        run: |
+          yamllint .
