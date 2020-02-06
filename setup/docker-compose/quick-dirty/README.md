@@ -7,5 +7,5 @@ This is the perfect to have a first try on Concourse.
 wget https://concourse-ci.org/docker-compose.yml
 
 # create and start the containers
-docker-compose up -d -f setup/docker-compose/quickly/docker-compose.yml
+docker-compose up -d
 ```

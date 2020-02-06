@@ -1,0 +1,47 @@
+---
+jobs:
+  - name: mongodb-atlas
+    plan:
+      - task: run-mdbatlas
+        privileged: true
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source:
+              repository: mcr.microsoft.com/dotnet/core/sdk
+              tag: 3.1
+          run:
+            path: sh
+            args:
+              - -exc
+              - |
+                export PATH="$PATH:/root/.dotnet/tools"
+                dotnet tool install --global mdbatlas
+                mdbatlas list orgs
+          params:
+            mdbatlas__PublicKey: ((mdbatlas-publickey))
+            mdbatlas__PrivateKey: ((mdbatlas-privatekey))
+  - name: azure-devops
+    plan:
+      - task: run-almops
+        privileged: true
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source:
+              repository: mcr.microsoft.com/dotnet/core/sdk
+              tag: 3.1
+          run:
+            path: sh
+            args:
+              - -exc
+              - |
+                export PATH="$PATH:/root/.dotnet/tools"
+                dotnet tool install --global almops
+                almops list projects
+          params:
+            almops__BaseUrl: ((almops-org))
+            almops__Username: ((almops-user))
+            almops__Token: ((almops-token))

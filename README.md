@@ -18,3 +18,4 @@ For more information, feel free to have a look at this [knowledge base](https://
 ## Samples
 
 * [Basic pipelines](pipelines/basic/README.md)
+* [.NET pipelines](pipelines/dotnet/README.md)
