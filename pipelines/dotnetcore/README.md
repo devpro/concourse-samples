@@ -20,7 +20,7 @@ fly --target localhost set-pipeline --pipeline aspnetcore --config 01_aspnetcore
 fly -t localhost unpause-pipeline -p aspnetcore
 
 # run the pipeline
-fly -t localhost trigger-job -j aspnetcore/aspnetcore-unit-tests
+fly -t localhost trigger-job -j aspnetcore/build-webapp
 ```
 
 2/ .NET Global tools
